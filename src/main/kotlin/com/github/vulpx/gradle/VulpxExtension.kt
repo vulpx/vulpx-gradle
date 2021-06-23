@@ -1,6 +1,6 @@
 package com.github.vulpx.gradle
 
-import com.github.vulpx.gradle.hook.GitHookConfigHandler
+import com.github.vulpx.gradle.hook.HookConfigHandler
 
 /**
  * Main extension for handling configuration of the plugin.
@@ -9,8 +9,8 @@ class VulpxExtension(private val config: VulpxConfig) {
 	/**
 	 * Configure git hooks.
 	 */
-	fun githooks(handler: GitHookConfigHandler.() -> Unit) {
-		handler(GitHookConfigHandler(this.config.gitHookConfig))
+	fun githooks(handler: HookConfigHandler.() -> Unit) {
+		handler(HookConfigHandler(this.config.gitHookConfig))
 	}
 
 	/**

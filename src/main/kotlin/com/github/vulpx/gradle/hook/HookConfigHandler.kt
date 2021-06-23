@@ -1,11 +1,11 @@
 package com.github.vulpx.gradle.hook
 
-class GitHookConfigHandler(private val config: GitHookConfig) {
+class HookConfigHandler(private val config: HookConfig) {
 	/**
 	 * Configure a hook of the target name.
 	 */
-	private fun configureHook(name: String, handler: GitHookExecutorConfig.() -> Unit) {
-		val config = GitHookExecutorConfig()
+	private fun configureHook(name: String, handler: HookExecutorConfig.() -> Unit) {
+		val config = HookExecutorConfig()
 		handler(config)
 		this.config.hooks[name] = config
 	}
@@ -13,14 +13,14 @@ class GitHookConfigHandler(private val config: GitHookConfig) {
 	/**
 	 * Create a pre-commit Git hook.
 	 */
-	fun preCommit(handler: GitHookExecutorConfig.() -> Unit) {
+	fun preCommit(handler: HookExecutorConfig.() -> Unit) {
 		this.configureHook("pre-commit", handler)
 	}
 
 	/**
 	 * Create a pre-push Git hook.
 	 */
-	fun prePush(handler: GitHookExecutorConfig.() -> Unit) {
+	fun prePush(handler: HookExecutorConfig.() -> Unit) {
 		this.configureHook("pre-push", handler)
 	}
 }
