@@ -10,11 +10,11 @@ data class HookExecutorConfig(
 	/**
 	 * The command to run.
 	 */
-	val exec: String?,
+	val exec: String? = null,
 	/**
 	 * The script file to run. This needs to be executable.
 	 */
-	val scriptFile: File?,
+	val scriptFile: File? = null,
 	val disabled: Boolean = false
 ) {
 	init {
