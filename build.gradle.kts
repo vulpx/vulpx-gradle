@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.5.10"
     id("java-gradle-plugin")
+    id("com.diffplug.spotless") version "5.14.0"
 }
 
 group = "com.github.vulpx"
@@ -12,6 +13,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
+
 }
 
 gradlePlugin {

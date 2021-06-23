@@ -14,11 +14,13 @@ class VulpxGradlePlugin : Plugin<Project> {
 	 */
 	override fun apply(target: Project) {
 		// create the vulpx extension
-		extension = target.extensions.create("vulpx", VulpxExtension::class.java)
+		extension = target.extensions.create("vulpx", VulpxExtension::class.java, VulpxConfig())
 		// define extraneous repositories
 		target.repositories.run {
 			mavenCentral()
 			google()
 		}
+		// apply plugins
+		target.plugins.apply("com.diffplug.spotless")
 	}
 }
